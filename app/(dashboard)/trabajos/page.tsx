@@ -142,20 +142,22 @@ export default async function TrabajosPage() {
                                                     {formatCurrency(saldo)}
                                                 </td>
                                                 <td>
-                                                    <div className="flex gap-sm items-center">
+                                                    <div className="flex gap-xs items-center">
                                                         <Link
-                                                            href={`/trabajos/${pedido.id}`}
-                                                            className="btn-icon"
-                                                            title="Ver más detalle"
+                                                            href={`/trabajos/${pedido.id}/editar`}
+                                                            className="btn btn-ghost"
+                                                            style={{ padding: '6px' }}
+                                                            title="Editar trabajo"
                                                         >
-                                                            <img src="/icons/edit.png" alt="Editar" style={{ width: '20px', height: '20px', opacity: 0.6 }} />
+                                                            <img src="/icons/edit.png" alt="Editar" style={{ width: '18px', height: '18px', opacity: 0.7 }} />
                                                         </Link>
                                                         <Link
                                                             href={`/trabajos/${pedido.id}`}
-                                                            className="btn-icon"
+                                                            className="btn btn-ghost"
+                                                            style={{ padding: '6px' }}
                                                             title="Ver detalle"
                                                         >
-                                                            <img src="/icons/search.png" alt="Buscar" style={{ width: '20px', height: '20px', opacity: 0.6 }} />
+                                                            <img src="/icons/search.png" alt="Buscar" style={{ width: '18px', height: '18px', opacity: 0.7 }} />
                                                         </Link>
                                                     </div>
                                                 </td>

@@ -100,7 +100,7 @@ export default function DetalleTrabajoPage() {
                             <div className="border-b pb-sm">
                                 <span className="text-muted font-medium block mb-xs">Etiqueta/Proveedor:</span>
                                 <div className="flex gap-sm flex-wrap">
-                                    {pedido.etiqueta_proveedor.length > 0 ? pedido.etiqueta_proveedor.map(p => (
+                                    {(pedido.etiqueta_proveedor && pedido.etiqueta_proveedor.length > 0) ? pedido.etiqueta_proveedor.map(p => (
                                         <span key={p} className="badge-tag orange">{p}</span>
                                     )) : <span className="text-muted">-</span>}
                                 </div>
