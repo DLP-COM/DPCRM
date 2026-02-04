@@ -88,21 +88,25 @@ export default function DetalleTrabajoPage() {
                                 <span style={{ fontWeight: 600 }}>{pedido.cliente?.empresa || 'Particular'}</span>
                             </div>
 
-                            <div className="border-b pb-sm">
-                                <span className="text-muted font-medium block mb-xs">Tipo de Trabajo:</span>
-                                <div className="flex gap-sm flex-wrap">
-                                    {pedido.tipo_trabajo.length > 0 ? pedido.tipo_trabajo.map(t => (
-                                        <span key={t} className="badge-tag">{t}</span>
-                                    )) : <span className="text-muted">-</span>}
+                            <div className="flex-between border-b pb-sm">
+                                <span className="text-muted font-medium">Tipo de Trabajo:</span>
+                                <div className="flex gap-sm flex-wrap justify-end">
+                                    {pedido.tipo_trabajo && (Array.isArray(pedido.tipo_trabajo) ? pedido.tipo_trabajo : [pedido.tipo_trabajo]).length > 0 ? (
+                                        (Array.isArray(pedido.tipo_trabajo) ? pedido.tipo_trabajo : [pedido.tipo_trabajo]).map(t => (
+                                            <span key={t} className="badge primary">{t}</span>
+                                        ))
+                                    ) : <span className="text-muted">-</span>}
                                 </div>
                             </div>
 
-                            <div className="border-b pb-sm">
-                                <span className="text-muted font-medium block mb-xs">Etiqueta/Proveedor:</span>
-                                <div className="flex gap-sm flex-wrap">
-                                    {(pedido.etiqueta_proveedor && pedido.etiqueta_proveedor.length > 0) ? pedido.etiqueta_proveedor.map(p => (
-                                        <span key={p} className="badge-tag orange">{p}</span>
-                                    )) : <span className="text-muted">-</span>}
+                            <div className="flex-between border-b pb-sm">
+                                <span className="text-muted font-medium">Etiqueta/Proveedor:</span>
+                                <div className="flex gap-sm flex-wrap justify-end">
+                                    {pedido.etiqueta_proveedor && (Array.isArray(pedido.etiqueta_proveedor) ? pedido.etiqueta_proveedor : [pedido.etiqueta_proveedor]).length > 0 ? (
+                                        (Array.isArray(pedido.etiqueta_proveedor) ? pedido.etiqueta_proveedor : [pedido.etiqueta_proveedor]).map(p => (
+                                            <span key={p} className="badge orange">{p}</span>
+                                        ))
+                                    ) : <span className="text-muted">-</span>}
                                 </div>
                             </div>
 
@@ -162,24 +166,15 @@ export default function DetalleTrabajoPage() {
                                 <span className="font-semibold">$ {pedido.sena.toLocaleString()}</span>
                             </div>
 
-                            <div className="p-md rounded mt-md" style={{ background: saldo > 0 ? 'rgba(239, 68, 68, 0.1)' : 'rgba(34, 197, 94, 0.1)', border: saldo > 0 ? '1px solid rgba(239, 68, 68, 0.2)' : '1px solid rgba(34, 197, 94, 0.2)' }}>
-                                <div className="flex-between items-center">
-                                    <div>
-                                        <div className="text-muted mb-xs" style={{ fontSize: '0.875rem', fontWeight: 600 }}>Saldo:</div>
-                                        <div style={{
-                                            fontWeight: 800,
-                                            fontSize: '1.75rem',
-                                            color: saldo > 0 ? 'var(--color-danger)' : 'var(--color-success)'
-                                        }}>
-                                            $ {saldo.toLocaleString()}
-                                        </div>
-                                    </div>
-                                    {saldo <= 0 ? (
-                                        <CheckCircle size={32} className="text-success" />
-                                    ) : (
-                                        <Info size={32} className="text-danger" />
-                                    )}
-                                </div>
+                            <div className="flex-between border-b pb-sm mt-sm">
+                                <span className="text-muted font-semibold">Saldo:</span>
+                                <span style={{
+                                    fontWeight: 800,
+                                    fontSize: '1.05rem',
+                                    color: saldo > 0 ? 'var(--color-danger)' : 'var(--color-success)'
+                                }}>
+                                    $ {saldo.toLocaleString()}
+                                </span>
                             </div>
 
                             <div className="mt-xl p-md rounded border border-dashed">
