@@ -142,22 +142,22 @@ export default async function TrabajosPage() {
                                                     {formatCurrency(saldo)}
                                                 </td>
                                                 <td>
-                                                    <Link
-                                                        href={`/trabajos/${pedido.id}`}
-                                                        className="btn btn-primary btn-sm"
-                                                        style={{
-                                                            padding: '4px',
-                                                            minWidth: '28px',
-                                                            height: '28px',
-                                                            borderRadius: '4px',
-                                                            display: 'flex',
-                                                            alignItems: 'center',
-                                                            justifyContent: 'center'
-                                                        }}
-                                                        title="Ver más detalle"
-                                                    >
-                                                        <Plus size={16} />
-                                                    </Link>
+                                                    <div className="flex gap-sm items-center">
+                                                        <Link
+                                                            href={`/trabajos/${pedido.id}`}
+                                                            className="btn-icon"
+                                                            title="Ver más detalle"
+                                                        >
+                                                            <img src="/icons/edit.png" alt="Editar" style={{ width: '20px', height: '20px', opacity: 0.6 }} />
+                                                        </Link>
+                                                        <Link
+                                                            href={`/trabajos/${pedido.id}`}
+                                                            className="btn-icon"
+                                                            title="Ver detalle"
+                                                        >
+                                                            <img src="/icons/search.png" alt="Buscar" style={{ width: '20px', height: '20px', opacity: 0.6 }} />
+                                                        </Link>
+                                                    </div>
                                                 </td>
                                             </tr>
                                         )
