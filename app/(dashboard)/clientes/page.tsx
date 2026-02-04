@@ -75,6 +75,7 @@ export default async function ClientesPage() {
                                     <th>Teléfono</th>
                                     <th>CUIT</th>
                                     <th>Domicilio</th>
+                                    <th style={{ width: '50px' }}></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -120,6 +121,24 @@ export default async function ClientesPage() {
                                             <td>{cliente.cuit || '-'}</td>
                                             <td style={{ maxWidth: '150px', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                                                 {cliente.domicilio || '-'}
+                                            </td>
+                                            <td>
+                                                <Link
+                                                    href={`/clientes/${cliente.id}`}
+                                                    className="btn btn-primary btn-sm"
+                                                    style={{
+                                                        padding: '4px',
+                                                        minWidth: '28px',
+                                                        height: '28px',
+                                                        borderRadius: '4px',
+                                                        display: 'flex',
+                                                        alignItems: 'center',
+                                                        justifyContent: 'center'
+                                                    }}
+                                                    title="Ver más detalle"
+                                                >
+                                                    <Plus size={16} />
+                                                </Link>
                                             </td>
                                         </tr>
                                     ))

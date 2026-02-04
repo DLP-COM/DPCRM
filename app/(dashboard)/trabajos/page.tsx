@@ -103,6 +103,7 @@ export default async function TrabajosPage() {
                                     <th>Pago</th>
                                     <th>Entrega</th>
                                     <th>Saldo</th>
+                                    <th style={{ width: '50px' }}></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -139,6 +140,24 @@ export default async function TrabajosPage() {
                                                 <td>{formatDate(pedido.fecha_entrega)}</td>
                                                 <td style={{ fontWeight: 600, color: saldo > 0 ? 'var(--color-success)' : 'inherit' }}>
                                                     {formatCurrency(saldo)}
+                                                </td>
+                                                <td>
+                                                    <Link
+                                                        href={`/trabajos/${pedido.id}`}
+                                                        className="btn btn-primary btn-sm"
+                                                        style={{
+                                                            padding: '4px',
+                                                            minWidth: '28px',
+                                                            height: '28px',
+                                                            borderRadius: '4px',
+                                                            display: 'flex',
+                                                            alignItems: 'center',
+                                                            justifyContent: 'center'
+                                                        }}
+                                                        title="Ver más detalle"
+                                                    >
+                                                        <Plus size={16} />
+                                                    </Link>
                                                 </td>
                                             </tr>
                                         )
